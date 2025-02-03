@@ -20,7 +20,7 @@ const CardContainer = styled.div`
 `;
 
 const Dashboard = ({ data }) => {
-  console.log(data);
+  // console.log(data);
   return (
     <Header>
       <h3>나만의 포켓몬</h3>

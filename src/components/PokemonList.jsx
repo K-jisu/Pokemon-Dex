@@ -14,11 +14,18 @@ const CardContainer = styled.div`
   gap: 15px;
 `;
 
-const PokemonList = ({ data, setData }) => {
+const PokemonList = ({ data, setData, addCard }) => {
   return (
     <CardContainer>
       {MOCK_DATA.map((card) => {
-        return <PokemonCard card={card} data={data} setData={setData} />;
+        return (
+          <PokemonCard
+            card={card}
+            data={data}
+            setData={setData}
+            addCard={addCard}
+          />
+        );
       })}
     </CardContainer>
   );

@@ -13,22 +13,22 @@ const Card = styled.div`
   gap: 15px;
 `;
 
-const PokemonCard = ({ card, data, setData }) => {
-  const addCard = () => {
-    if (data.length < 6) {
-      setData((prev) => [...prev, card]);
-    } else {
-      alert("포켓몬은 6개만 담을 수 있습니다.");
-      return;
-    }
-  };
+const PokemonCard = ({ card, data, setData, addCard }) => {
+  // const addCard = () => {
+  //   if (data.length < 6) {
+  //     setData((prev) => [...prev, card]);
+  //   } else {
+  //     alert("포켓몬은 6개만 담을 수 있습니다.");
+  //     return;
+  //   }
+  // };
 
   return (
     <Card key={card.id}>
       <img src={card.img_url} alt={card.korean_name} />
       <h4>{card.korean_name}</h4>
       <p>No.{card.id}</p>
-      <button onClick={addCard}>추가</button>
+      <button onClick={() => addCard(card)}>추가</button>
     </Card>
   );
 };

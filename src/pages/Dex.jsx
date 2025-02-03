@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import styled, { createGlobalStyle } from "styled-components";
+import useCardManager from "../utils/useCardManager";
 
 const DexContainer = styled.div`
   width: 97%;
@@ -19,14 +20,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Dex = () => {
-  const [data, setData] = useState([]);
-  // console.log(data)
+  const { data, addCard } = useCardManager();
+
   return (
     <>
       <GlobalStyle />
       <DexContainer>
-        <Dashboard data={data} setData={setData} />
-        <PokemonList data = {data} setData={setData} />
+        <Dashboard data={data}  />
+        <PokemonList data={data}  addCard={addCard} />
       </DexContainer>
     </>
   );
