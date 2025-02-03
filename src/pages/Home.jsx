@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const navigate = useNavigate();
@@ -9,7 +9,7 @@ const Home = () => {
         onClick={() => {
           navigate("dex");
         }}
-      ></button>
+      >포켓몬 도감 시작하기</button>
     </div>
   );
 };
