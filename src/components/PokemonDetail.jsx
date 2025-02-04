@@ -12,6 +12,10 @@ const Body = styled.div`
   align-items: center;
   justify-content: center;
 `;
+const Img = styled.img`
+  width: 180px;
+  height: auto;
+`
 
 const PokemonDetail = () => {
   const [searchParams] = useSearchParams();
@@ -22,7 +26,7 @@ const PokemonDetail = () => {
 
   return (
     <Body>
-      <img src={img_url} alt={korean_name} />
+      <Img src={img_url} alt={korean_name} />
       <h3>{korean_name}</h3>
       <p>타입 : {types}</p>
       <p>{description}</p>
