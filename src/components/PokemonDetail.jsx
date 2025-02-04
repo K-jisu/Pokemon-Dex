@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../data/MOCK_DATA";
 
@@ -14,11 +14,11 @@ const Body = styled.div`
 `;
 
 const PokemonDetail = () => {
-  const params = useParams();
+  const [searchParams] = useSearchParams();
+  const pid = searchParams.get("pid");
   const { img_url, korean_name, types, id, description } = MOCK_DATA.find(
-    (item) => item.id === Number(params.pid)
+    (item) => item.id === Number(pid)
   );
-  console.log(types);
 
   return (
     <Body>

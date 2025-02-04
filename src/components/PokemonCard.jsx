@@ -1,6 +1,7 @@
-import React from "react";
-import { Link, useParams } from "react-router-dom";
+import React, { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { PokemonContext } from "../context/PokemonContext";
 
 const Card = styled.div`
   display: flex;
@@ -14,23 +15,41 @@ const Card = styled.div`
   gap: 15px;
 `;
 
-const PokemonCard = ({ card, cardMethod, text }) => {
+const PokemonCard = ({ card, text, cardMethod }) => {
+  const { data, addCard, removeCard } = useContext(PokemonContext);
+  const navigate = useNavigate();
+
+  const handleDetail = () => {
+    navigate(`/detail?pid=${card.id}`);
+  };
+
   return (
-    <Link to={`/dex/${card.id}`}>
-      <Card>
-        <img src={card.img_url} alt={card.korean_name} />
-        <h4>{card.korean_name}</h4>
-        <p>No.{card.id}</p>
+    <Card onClick={handleDetail}>
+      <img src={card.img_url} alt={card.korean_name} />
+      <h4>{card.korean_name}</h4>
+      <p>No.{card.id}</p>
+      {data.some((item) => item.id === card.id) ? (
         <button
           onClick={(e) => {
-            e.preventDefault();
-            return cardMethod(card);
+            // e.preventDefault();
+            e.stopPropagation();
+            return removeCard(card);
           }}
         >
-          {text}
+          삭제
         </button>
-      </Card>
-    </Link>
+      ) : (
+        <button
+          onClick={(e) => {
+            // e.preventDefault();
+            e.stopPropagation();
+            return addCard(card);
+          }}
+        >
+          추가
+        </button>
+      )}
+    </Card>
   );
 };
 
