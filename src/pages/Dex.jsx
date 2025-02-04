@@ -3,6 +3,7 @@ import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import styled, { createGlobalStyle } from "styled-components";
 import useCardManager from "../utils/useCardManager";
+import { PokemonContext } from "../context/PokemonContext";
 
 const DexContainer = styled.div`
   width: 97%;
@@ -25,10 +26,18 @@ const Dex = () => {
   return (
     <>
       <GlobalStyle />
-      <DexContainer>
-        <Dashboard data={data} removeCard={removeCard} />
-        <PokemonList data={data} addCard={addCard} />
-      </DexContainer>
+      <PokemonContext.Provider
+        value={{
+          data,
+          addCard,
+          removeCard,
+        }}
+      >
+        <DexContainer>
+          <Dashboard />
+          <PokemonList />
+        </DexContainer>
+      </PokemonContext.Provider>
     </>
   );
 };

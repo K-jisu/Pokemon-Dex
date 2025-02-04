@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { Link } from "react-router-dom";
+import { PokemonContext } from "../context/PokemonContext";
 
 const Header = styled.header`
   width: 100%;
@@ -20,20 +20,14 @@ const CardContainer = styled.div`
   gap: 100px;
 `;
 
-const Dashboard = ({ data, removeCard }) => {
+const Dashboard = () => {
+  const { data } = useContext(PokemonContext);
   return (
     <Header>
       <h3>나만의 포켓몬</h3>
       <CardContainer>
         {data.map((card) => {
-          return (
-            <PokemonCard
-              key={card.id}
-              card={card}
-              cardMethod={removeCard}
-              text="삭제"
-            />
-          );
+          return <PokemonCard key={card.id} card={card} />;
         })}
       </CardContainer>
     </Header>

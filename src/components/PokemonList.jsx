@@ -1,4 +1,3 @@
-import React from "react";
 import MOCK_DATA from "../data/MOCK_DATA";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
@@ -14,20 +13,11 @@ const CardContainer = styled.div`
   gap: 15px;
 `;
 
-const PokemonList = ({ data, setData, addCard }) => {
+const PokemonList = () => {
   return (
     <CardContainer>
       {MOCK_DATA.map((card) => {
-        return (
-          <PokemonCard
-            key={card.id}
-            card={card}
-            data={data}
-            setData={setData}
-            cardMethod={addCard}
-            text="추가"
-          />
-        );
+        return <PokemonCard key={card.id} card={card} text="추가" />;
       })}
     </CardContainer>
   );
