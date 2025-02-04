@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
 import styled, { createGlobalStyle } from "styled-components";
@@ -14,18 +13,12 @@ const DexContainer = styled.div`
   gap: 20px;
 `;
 
-const GlobalStyle = createGlobalStyle`
-  body{
-    background-color: #FFAC59;
-  }
-`;
-
 const Dex = () => {
   const { data, addCard, removeCard } = useCardManager();
 
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <PokemonContext.Provider
         value={{
           data,

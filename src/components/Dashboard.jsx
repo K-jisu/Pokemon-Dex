@@ -7,7 +7,7 @@ const Header = styled.header`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: #c1c2c1;
+  background-color: #e9e9e9;
   border-radius: 8px;
   text-align: center;
   align-items: center;
@@ -29,20 +29,20 @@ const PocketBall = styled.img`
 `;
 
 const H3 = styled.h3`
-  font-size: 20px;
   margin: 20px;
 `;
 
 const Dashboard = () => {
   const { data, removeCard } = useContext(PokemonContext);
 
+  // 포켓볼 담을 빈 배열 6개 준비
   const emptyPoketBall = Array.from({ length: 6 });
 
   return (
     <Header>
       <H3>나만의 포켓몬</H3>
       <CardContainer>
-        {/* 맵을 돌기 전에 6번 돌아서 포켓볼 카드 보여주기  */}
+        {/* 빈배열의 인덱스의 데이터의 값이 있으면 카드 보여주고 없으면 포켓볼 보여주고 */}
         {emptyPoketBall.map((_, idx) => {
           if (data[idx]) {
             return (

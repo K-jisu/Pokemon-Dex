@@ -1,7 +1,8 @@
 import React from "react";
-import { Link, useSearchParams } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../data/MOCK_DATA";
+import { typeColors } from "../data/TypeColor";
 
 const Body = styled.div`
   display: flex;
@@ -11,28 +12,52 @@ const Body = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
+  gap: 20px;
+  /* 타입에 따라 색 변화 */
+  background: ${({ $types }) =>
+    $types.length > 1
+      ? `linear-gradient(135deg, ${typeColors[$types[0]]}, ${
+          typeColors[$types[1]]
+        })`
+      : typeColors[$types[0]] || "#C1C2C1"};
 `;
 const Img = styled.img`
-  width: 180px;
+  width: 300px;
   height: auto;
-`
+`;
+
+const Button = styled.button`
+  width: 100px;
+  background-color: #ffdabb;
+  border: none;
+  border-radius: 8px;
+  font-size: 20px;
+  transition: 0.3s ease-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
 
 const PokemonDetail = () => {
   const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
   const pid = searchParams.get("pid");
   const { img_url, korean_name, types, id, description } = MOCK_DATA.find(
     (item) => item.id === Number(pid)
   );
 
+  // 뒤로가기
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
-    <Body>
+    <Body $types={types}>
       <Img src={img_url} alt={korean_name} />
       <h3>{korean_name}</h3>
-      <p>타입 : {types}</p>
+      <p>타입 : {types.join(", ")}</p>
       <p>{description}</p>
-      <Link to={"/dex"}>
-        <button>뒤로가기</button>
-      </Link>
+      <Button onClick={goBack}>뒤로가기</Button>
     </Body>
   );
 };

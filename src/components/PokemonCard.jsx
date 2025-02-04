@@ -1,7 +1,5 @@
-import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-import { PokemonContext } from "../context/PokemonContext";
 
 const Card = styled.div`
   display: flex;
@@ -13,6 +11,11 @@ const Card = styled.div`
   height: 320px;
   justify-content: center;
   gap: 15px;
+  cursor: pointer;
+  transition: 0.5s ease;
+  &:hover {
+    transform: scale(1.05);
+  }
 `;
 
 const Img = styled.img`
@@ -20,9 +23,22 @@ const Img = styled.img`
   height: auto;
 `;
 
+const Button = styled.button`
+  width: 70px;
+  background-color: #f55151;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  transition: 0.3s ease-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;
+
 const PokemonCard = ({ card, text, cardMethod }) => {
   const navigate = useNavigate();
 
+  // 쿼리스트링
   const handleDetail = () => {
     navigate(`/detail?pid=${card.id}`);
   };
@@ -31,16 +47,15 @@ const PokemonCard = ({ card, text, cardMethod }) => {
     <Card onClick={handleDetail}>
       <Img src={card.img_url} alt={card.korean_name} />
       <h4>{card.korean_name}</h4>
-      <p>No.{card.id}</p>
-      <button
+      <p>No.{String(card.id).padStart(3, "0")}</p>
+      <Button
         onClick={(e) => {
-          // e.preventDefault();
           e.stopPropagation();
           return cardMethod(card);
         }}
       >
         {text}
-      </button>
+      </Button>
     </Card>
   );
 };
