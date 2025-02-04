@@ -11,23 +11,56 @@ const Header = styled.header`
   border-radius: 8px;
   text-align: center;
   align-items: center;
+  padding-bottom: 20px;
 `;
 
 const CardContainer = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 100px;
+  gap: 50px;
+  justify-content: center;
+  align-items: center;
+`;
+
+const PocketBall = styled.img`
+  width: 150px;
+  height: auto;
+`;
+
+const H3 = styled.h3`
+  font-size: 20px;
+  margin: 20px;
 `;
 
 const Dashboard = () => {
-  const { data } = useContext(PokemonContext);
+  const { data, removeCard } = useContext(PokemonContext);
+
+  const emptyPoketBall = Array.from({ length: 6 });
+
   return (
     <Header>
-      <h3>나만의 포켓몬</h3>
+      <H3>나만의 포켓몬</H3>
       <CardContainer>
-        {data.map((card) => {
-          return <PokemonCard key={card.id} card={card} />;
+        {/* 맵을 돌기 전에 6번 돌아서 포켓볼 카드 보여주기  */}
+        {emptyPoketBall.map((_, idx) => {
+          if (data[idx]) {
+            return (
+              <PokemonCard
+                key={data[idx].id}
+                card={data[idx]}
+                text="삭제"
+                cardMethod={removeCard}
+              />
+            );
+          } else {
+            return (
+              <PocketBall
+                src="/src/assets/poketball_glossy.png"
+                alt="poketball"
+              />
+            );
+          }
         })}
       </CardContainer>
     </Header>
