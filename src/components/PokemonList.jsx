@@ -20,10 +20,12 @@ const PokemonList = ({ data, setData, addCard }) => {
       {MOCK_DATA.map((card) => {
         return (
           <PokemonCard
+            key={card.id}
             card={card}
             data={data}
             setData={setData}
-            addCard={addCard}
+            cardMethod={addCard}
+            text="추가"
           />
         );
       })}

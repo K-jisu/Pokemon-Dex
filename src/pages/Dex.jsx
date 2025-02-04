@@ -20,14 +20,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 const Dex = () => {
-  const { data, addCard } = useCardManager();
+  const { data, addCard, removeCard } = useCardManager();
 
   return (
     <>
       <GlobalStyle />
       <DexContainer>
-        <Dashboard data={data}  />
-        <PokemonList data={data}  addCard={addCard} />
+        <Dashboard data={data} removeCard={removeCard} />
+        <PokemonList data={data} addCard={addCard} />
       </DexContainer>
     </>
   );

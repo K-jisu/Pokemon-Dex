@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
+import { Link } from "react-router-dom";
 
 const Header = styled.header`
   width: 100%;
@@ -19,14 +20,20 @@ const CardContainer = styled.div`
   gap: 100px;
 `;
 
-const Dashboard = ({ data }) => {
-  // console.log(data);
+const Dashboard = ({ data, removeCard }) => {
   return (
     <Header>
       <h3>나만의 포켓몬</h3>
       <CardContainer>
         {data.map((card) => {
-          return <PokemonCard card={card} />;
+          return (
+            <PokemonCard
+              key={card.id}
+              card={card}
+              cardMethod={removeCard}
+              text="삭제"
+            />
+          );
         })}
       </CardContainer>
     </Header>
