@@ -9,14 +9,18 @@ const Card = styled.div`
   align-items: center;
   background-color: white;
   border-radius: 8px;
-  width: 150px;
-  height: 250px;
+  width: 220px;
+  height: 320px;
   justify-content: center;
   gap: 15px;
 `;
 
+const Img = styled.img`
+  width: 180px;
+  height: auto;
+`;
+
 const PokemonCard = ({ card, text, cardMethod }) => {
-  const { data, addCard, removeCard } = useContext(PokemonContext);
   const navigate = useNavigate();
 
   const handleDetail = () => {
@@ -25,30 +29,18 @@ const PokemonCard = ({ card, text, cardMethod }) => {
 
   return (
     <Card onClick={handleDetail}>
-      <img src={card.img_url} alt={card.korean_name} />
+      <Img src={card.img_url} alt={card.korean_name} />
       <h4>{card.korean_name}</h4>
       <p>No.{card.id}</p>
-      {data.some((item) => item.id === card.id) ? (
-        <button
-          onClick={(e) => {
-            // e.preventDefault();
-            e.stopPropagation();
-            return removeCard(card);
-          }}
-        >
-          삭제
-        </button>
-      ) : (
-        <button
-          onClick={(e) => {
-            // e.preventDefault();
-            e.stopPropagation();
-            return addCard(card);
-          }}
-        >
-          추가
-        </button>
-      )}
+      <button
+        onClick={(e) => {
+          // e.preventDefault();
+          e.stopPropagation();
+          return cardMethod(card);
+        }}
+      >
+        {text}
+      </button>
     </Card>
   );
 };
