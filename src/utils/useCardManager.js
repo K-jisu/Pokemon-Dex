@@ -1,7 +1,8 @@
 import { useState } from "react";
+import { getLocalStorage, setLocalStorage } from "./localStorage";
 
 const useCardManager = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(getLocalStorage("pocketMon") || []);
 
   const addCard = (card) => {
     if (data.length < 6) {
@@ -10,6 +11,7 @@ const useCardManager = () => {
           alert("같은 포켓몬은 잡을 수 없습니다.");
           return prev;
         } else {
+          setLocalStorage("pocketMon", [...prev, card]);
           return [...prev, card];
         }
       });
@@ -21,7 +23,9 @@ const useCardManager = () => {
 
   const removeCard = (card) => {
     setData((prev) => {
-      return prev.filter((item) => item.id !== card.id);
+      const filteredPocketmon = prev.filter((item) => item.id !== card.id);
+      setLocalStorage("pocketMon", filteredPocketmon);
+      return filteredPocketmon;
     });
   };
 
