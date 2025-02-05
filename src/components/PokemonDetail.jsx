@@ -3,6 +3,8 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import styled from "styled-components";
 import MOCK_DATA from "../data/MOCK_DATA";
 import { typeColors } from "../data/TypeColor";
+import { useContext } from "react";
+import { PokemonContext } from "../context/PokemonContext";
 
 const Body = styled.div`
   display: flex;
@@ -41,10 +43,10 @@ const Button = styled.button`
 const PokemonDetail = () => {
   const [searchParams] = useSearchParams();
   const navigate = useNavigate();
+  const { data, addCard, removeCard } = useContext(PokemonContext);
   const pid = searchParams.get("pid");
-  const { img_url, korean_name, types, id, description } = MOCK_DATA.find(
-    (item) => item.id === Number(pid)
-  );
+  const card = MOCK_DATA.find((item) => item.id === Number(pid));
+  const { img_url, korean_name, types, id, description } = card;
 
   // 뒤로가기
   const goBack = () => {
@@ -57,6 +59,11 @@ const PokemonDetail = () => {
       <h3>{korean_name}</h3>
       <p>타입 : {types.join(", ")}</p>
       <p>{description}</p>
+      {data.some((item) => item.id === Number(pid)) ? (
+        <Button onClick={() => removeCard(card)}>삭제하기</Button>
+      ) : (
+        <Button onClick={() => addCard(card)}>추가하기</Button>
+      )}
       <Button onClick={goBack}>뒤로가기</Button>
     </Body>
   );
