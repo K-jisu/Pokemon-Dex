@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const HomeWrapper = styled.div`
+
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -22,6 +23,7 @@ const Button = styled.button`
   transition: 0.3s ease-out;
   &:hover {
     transform: scale(1.1);
+    cursor: pointer;
   }
 `;
 

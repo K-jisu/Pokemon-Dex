@@ -7,12 +7,15 @@ const Card = styled.div`
   align-items: center;
   background-color: white;
   border-radius: 8px;
-  width: 220px;
-  height: 320px;
+  width: 175px;
+  height: 295px;
   justify-content: center;
-  gap: 15px;
+  gap: 5px;
   cursor: pointer;
-  transition: 0.5s ease;
+  border: 1px solid #6c6c6c26;
+  box-shadow: 3px 1px 1px 1px rgb(118 101 85 / 38%);
+  z-index: 1;
+  transition: 0.2s ease;
   &:hover {
     transform: scale(1.05);
   }
@@ -29,7 +32,7 @@ const Button = styled.button`
   border: none;
   border-radius: 8px;
   font-size: 15px;
-  transition: 0.3s ease-out;
+  transition: 0.2s ease-out;
   &:hover {
     transform: scale(1.1);
   }

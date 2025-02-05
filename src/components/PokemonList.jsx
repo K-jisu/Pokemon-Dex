@@ -9,7 +9,9 @@ const CardContainer = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  background-color: #e9e9e9;
+  background-color: #ffffff;
+  box-shadow: 8px 6px 1px 1px rgb(118 101 85 / 38%);
+
   border-radius: 8px;
   padding: 20px;
   gap: 15px;
