@@ -1,8 +1,7 @@
-import { PokemonContext } from "./context/PokemonContext";
 import Router from "./shared/Router";
 import "./styles/reset.css";
 import { createGlobalStyle } from "styled-components";
-import useCardManager from "./utils/useCardManager";
+import PokemonProvider from "./context/PokemonProvider";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -24,14 +23,12 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
-  const { data, addCard, removeCard } = useCardManager();
-
   return (
     <>
-      <PokemonContext.Provider value={{ data, addCard, removeCard }}>
+      <PokemonProvider>
         <GlobalStyle />
         <Router />
-      </PokemonContext.Provider>
+      </PokemonProvider>
     </>
   );
 }
