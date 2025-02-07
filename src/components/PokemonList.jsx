@@ -1,8 +1,6 @@
-import { useContext } from "react";
 import MOCK_DATA from "../data/MOCK_DATA";
 import PokemonCard from "./PokemonCard";
 import styled from "styled-components";
-import { PokemonContext } from "../context/PokemonContext";
 
 const CardContainer = styled.div`
   display: flex;
@@ -18,18 +16,10 @@ const CardContainer = styled.div`
 `;
 
 const PokemonList = () => {
-  const { addCard } = useContext(PokemonContext);
   return (
     <CardContainer>
       {MOCK_DATA.map((card) => {
-        return (
-          <PokemonCard
-            key={card.id}
-            card={card}
-            text="추가"
-            cardMethod={addCard}
-          />
-        );
+        return <PokemonCard key={card.id} card={card} text="추가" />;
       })}
     </CardContainer>
   );

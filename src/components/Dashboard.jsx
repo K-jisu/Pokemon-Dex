@@ -1,7 +1,8 @@
-import React, { useContext } from "react";
+// import React, { useContext } from "react";
 import styled from "styled-components";
 import PokemonCard from "./PokemonCard";
-import { PokemonContext } from "../context/PokemonContext";
+// import { PokemonContext } from "../context/PokemonContext";
+import { useSelector } from "react-redux";
 
 const Header = styled.header`
   width: 100%;
@@ -38,7 +39,8 @@ const PikachuImg = styled.img`
 `;
 
 const Dashboard = () => {
-  const { data, removeCard } = useContext(PokemonContext);
+  // const { data, removeCard } = useContext(PokemonContext);
+  const data = useSelector((state) => state.pokemon);
 
   // 포켓볼 담을 빈 배열 6개 준비
   const emptyPoketBall = Array.from({ length: 6 });
@@ -51,12 +53,7 @@ const Dashboard = () => {
         {emptyPoketBall.map((_, idx) => {
           if (data[idx]) {
             return (
-              <PokemonCard
-                key={data[idx].id}
-                card={data[idx]}
-                text="삭제"
-                cardMethod={removeCard}
-              />
+              <PokemonCard key={data[idx].id} card={data[idx]} text="삭제" />
             );
           } else {
             return (

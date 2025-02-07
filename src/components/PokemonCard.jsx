@@ -38,7 +38,7 @@ const Button = styled.button`
   }
 `;
 
-const PokemonCard = ({ card, text, cardMethod }) => {
+const PokemonCard = ({ card, text }) => {
   const navigate = useNavigate();
 
   // 쿼리스트링
@@ -51,14 +51,25 @@ const PokemonCard = ({ card, text, cardMethod }) => {
       <Img src={card.img_url} alt={card.korean_name} />
       <h4>{card.korean_name}</h4>
       <p>No.{String(card.id).padStart(3, "0")}</p>
-      <Button
-        onClick={(e) => {
-          e.stopPropagation();
-          return cardMethod(card);
-        }}
-      >
-        {text}
-      </Button>
+      {text === "추가" ? (
+        <Button
+          onClick={(e) => {
+            e.stopPropagation();
+            return addCard();
+          }}
+        >
+          {text}
+        </Button>
+      ) : (
+        <Button
+          onClick={(e) => {
+            e.stopPropagation();
+            return removeCard();
+          }}
+        >
+          {text}
+        </Button>
+      )}
     </Card>
   );
 };
