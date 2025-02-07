@@ -1,9 +1,8 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import styled, { keyframes } from "styled-components";
 
 const HomeWrapper = styled.div`
-
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -12,7 +11,7 @@ const HomeWrapper = styled.div`
   gap: 20px;
 `;
 
-const Button = styled.button`
+const Button = styled(Link)`
   width: 220px;
   background-color: #f55151;
   border: none;
@@ -47,18 +46,11 @@ const PokemonLogo = styled.img`
 `;
 
 const Home = () => {
-  const navigate = useNavigate();
   return (
     <HomeWrapper>
       <PokemonLogo src="/src/assets/pokemon-logo.png" alt="pokemon-logo" />
       <img src="/src/assets/homepikachu.png" alt="pikachu" />
-      <Button
-        onClick={() => {
-          navigate("dex");
-        }}
-      >
-        포켓몬 도감 시작하기
-      </Button>
+      <Button to={"dex"}>포켓몬 도감 시작하기</Button>
     </HomeWrapper>
   );
 };
