@@ -1,8 +1,6 @@
-import React, { useState } from "react";
 import Dashboard from "../components/Dashboard";
 import PokemonList from "../components/PokemonList";
-import styled, { createGlobalStyle } from "styled-components";
-import useCardManager from "../utils/useCardManager";
+import styled from "styled-components";
 
 const DexContainer = styled.div`
   width: 97%;
@@ -13,21 +11,12 @@ const DexContainer = styled.div`
   gap: 20px;
 `;
 
-const GlobalStyle = createGlobalStyle`
-  body{
-    background-color: #FFAC59;
-  }
-`;
-
 const Dex = () => {
-  const { data, addCard, removeCard } = useCardManager();
-
   return (
     <>
-      <GlobalStyle />
       <DexContainer>
-        <Dashboard data={data} removeCard={removeCard} />
-        <PokemonList data={data} addCard={addCard} />
+        <Dashboard />
+        <PokemonList />
       </DexContainer>
     </>
   );
