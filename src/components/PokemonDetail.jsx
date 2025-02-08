@@ -5,6 +5,12 @@ import MOCK_DATA from "../data/MOCK_DATA";
 import { typeColors } from "../data/TypeColor";
 import { useDispatch, useSelector } from "react-redux";
 import { addCard, removeCard } from "../redux/slices/pokemonSlice";
+import {
+  canAddCardSwal,
+  overSixCardSwal,
+  removeCardSwal,
+  sameCardSwal,
+} from "../utils/swalModal";
 
 const Body = styled.div`
   display: flex;
@@ -46,7 +52,7 @@ const PokemonDetail = () => {
   const card = MOCK_DATA.find((item) => item.id === Number(pid));
   const { img_url, korean_name, types, description } = card;
   const navigate = useNavigate();
-  const data = useSelector((state) => state.pokemon);
+  const pokemonCards = useSelector((state) => state.pokemon);
   const dispatch = useDispatch();
   // 뒤로가기
   const goBack = () => {
@@ -54,10 +60,20 @@ const PokemonDetail = () => {
   };
 
   const addPokeCard = (card) => {
-    dispatch(addCard(card));
+    // 6개 이상 추가할 때
+    if (pokemonCards.length > 5) {
+      return overSixCardSwal();
+      // 같은 포켓몬을 잡을 때
+    } else if (pokemonCards.some((item) => item.id === card.id)) {
+      return sameCardSwal();
+    } else {
+      canAddCardSwal();
+      return dispatch(addCard(card));
+    }
   };
 
   const removePokeCard = (card) => {
+    removeCardSwal();
     dispatch(removeCard(card));
   };
 
@@ -67,7 +83,7 @@ const PokemonDetail = () => {
       <h3>{korean_name}</h3>
       <p>타입 : {types.join(", ")}</p>
       <p>{description}</p>
-      {data.some((item) => item.id === Number(pid)) ? (
+      {pokemonCards.some((item) => item.id === Number(pid)) ? (
         <Button onClick={() => removePokeCard(card)}>삭제하기</Button>
       ) : (
         <Button onClick={() => addPokeCard(card)}>추가하기</Button>
