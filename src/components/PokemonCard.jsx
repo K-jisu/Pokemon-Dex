@@ -1,5 +1,13 @@
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
+import { addCard, removeCard } from "../redux/slices/pokemonSlice";
+import {
+  canAddCardSwal,
+  overSixCardSwal,
+  removeCardSwal,
+  sameCardSwal,
+} from "../utils/swalModal";
 
 const Card = styled.div`
   display: flex;
@@ -39,11 +47,31 @@ const Button = styled.button`
 `;
 
 const PokemonCard = ({ card, text }) => {
+  const pokemonCards = useSelector((state) => state.pokemon);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   // 쿼리스트링
   const handleDetail = () => {
     navigate(`/detail?pid=${card.id}`);
+  };
+
+  const addPokeCard = (card) => {
+    // 6개 이상 추가할 때
+    if (pokemonCards.length > 5) {
+      return overSixCardSwal();
+      // 같은 포켓몬을 잡을 때
+    } else if (pokemonCards.some((item) => item.id === card.id)) {
+      return sameCardSwal();
+    } else {
+      canAddCardSwal();
+      return dispatch(addCard(card));
+    }
+  };
+
+  const removePokeCard = (card) => {
+    removeCardSwal();
+    dispatch(removeCard(card));
   };
 
   return (
@@ -55,7 +83,7 @@ const PokemonCard = ({ card, text }) => {
         <Button
           onClick={(e) => {
             e.stopPropagation();
-            return addCard();
+            return addPokeCard(card);
           }}
         >
           {text}
@@ -64,7 +92,7 @@ const PokemonCard = ({ card, text }) => {
         <Button
           onClick={(e) => {
             e.stopPropagation();
-            return removeCard();
+            return removePokeCard(card);
           }}
         >
           {text}

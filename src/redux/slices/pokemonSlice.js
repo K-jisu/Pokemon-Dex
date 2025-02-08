@@ -10,7 +10,7 @@ const pokemonSlice = createSlice({
       return [...state, action.payload];
     },
     removeCard: (state, action) => {
-      return state.filter((card) => card.id !== action.payload);
+      return state.filter((card) => card.id !== action.payload.id);
     },
   },
 });
