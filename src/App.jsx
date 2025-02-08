@@ -1,7 +1,9 @@
+import { useSelector } from "react-redux";
 import Router from "./shared/Router";
 import "./styles/reset.css";
 import { createGlobalStyle } from "styled-components";
-import PokemonProvider from "./context/PokemonProvider";
+import { useEffect } from "react";
+import { setLocalStorage } from "./utils/localStorage";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -23,12 +25,14 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 function App() {
+  const card = useSelector((state) => state.pokemon);
+  useEffect(() => {
+    setLocalStorage("pokeMon", card);
+  }, [card]);
   return (
     <>
-      <PokemonProvider>
-        <GlobalStyle />
-        <Router />
-      </PokemonProvider>
+      <GlobalStyle />
+      <Router />
     </>
   );
 }
