@@ -48,8 +48,8 @@ const PokemonLogo = styled.img`
 const Home = () => {
   return (
     <HomeWrapper>
-      <PokemonLogo src="/src/assets/pokemon-logo.png" alt="pokemon-logo" />
-      <img src="/src/assets/homepikachu.png" alt="pikachu" />
+      <PokemonLogo src="/pokemon-logo.png" alt="pokemon-logo" />
+      <img src="/homepikachu.png" alt="pikachu" />
       <Button to={"dex"}>포켓몬 도감 시작하기</Button>
     </HomeWrapper>
   );

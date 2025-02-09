@@ -45,7 +45,7 @@ const Dashboard = () => {
   return (
     <Header>
       <CardContainer>
-        <PikachuImg src="/src/assets/pikachu.png" alt="" />
+        <PikachuImg src="/pikachu.png" alt="" />
         {/* 빈배열의 인덱스의 데이터의 값이 있으면 카드 보여주고 없으면 포켓볼 보여주고 */}
         {emptyPoketBall.map((_, idx) => {
           if (data[idx]) {
@@ -53,12 +53,7 @@ const Dashboard = () => {
               <PokemonCard key={data[idx].id} card={data[idx]} text="삭제" />
             );
           } else {
-            return (
-              <PocketBall
-                src="/src/assets/poketball_glossy.png"
-                alt="poketball"
-              />
-            );
+            return <PocketBall src="/poketball_glossy.png" alt="poketball" />;
           }
         })}
       </CardContainer>

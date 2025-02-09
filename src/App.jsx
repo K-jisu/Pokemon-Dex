@@ -12,7 +12,7 @@ const GlobalStyle = createGlobalStyle`
   }
   @font-face {
     font-family: "Silver";
-    src: url("/src/fonts/Silver.ttf") format('truetype');
+    src: url("/fonts/Silver.ttf") format('truetype');
   }
   body{
     font-family: 'Silver', sans-serif;
