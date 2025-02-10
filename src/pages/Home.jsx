@@ -20,6 +20,7 @@ const Button = styled(Link)`
   font-size: 30px;
   padding-top: 12px;
   transition: 0.3s ease-out;
+  color: black;
   &:hover {
     transform: scale(1.1);
     cursor: pointer;
