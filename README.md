@@ -38,19 +38,22 @@
 <details>
   <summary>홈 화면</summary>
 
-![alt text](image-3.png)
+![alt text](![image](https://github.com/user-attachments/assets/d1d35b2b-cd23-495e-b3ce-9da4cd5dfe34)
+)
 
 </details>
 <details>
   <summary>도감 화면</summary>
 
-![alt text](image-2.png)
+![alt text](![image](https://github.com/user-attachments/assets/9bb58bc2-679a-40bb-88ee-9f070b7e3e4b)
+)
 
 </details>
 <details>
   <summary>상세 페이지</summary>
 
-![alt text](image-4.png)
+![alt text](![image](https://github.com/user-attachments/assets/50f22e31-6b1b-43a2-aa9c-706af2a73736)
+)
 
 </details>
 
