@@ -1,6 +1,6 @@
 # 🎉 1세대 푸키먼 도감
 
-![alt text](image.png)
+![image](https://github.com/user-attachments/assets/7b3976e7-ba27-436e-a97f-3c5764648e77)
 
 # 🔖 프로젝트 개요
 
