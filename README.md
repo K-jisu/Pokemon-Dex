@@ -4,7 +4,7 @@
 
 # 🔖 프로젝트 개요
 
-브랜치의 사용방법 익히면서 React의 Router와 context APi, RTK를 익히기 위한 프로젝트
+브랜치의 사용방법, React의 Router와 context APi, RTK를 익히기 위한 프로젝트
 
 # 🔨 기술 스택
 
