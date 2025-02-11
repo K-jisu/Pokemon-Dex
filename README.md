@@ -60,7 +60,7 @@
 
 ```
 📦Pokemon-Dex
- ┣ 📂public
+┣ 📂public
  ┃ ┣ 📂fonts
  ┃ ┃ ┗ 📜Silver.ttf
  ┃ ┣ 📜homepikachu.png
@@ -93,15 +93,7 @@
  ┃ ┣ 📂utils
  ┃ ┃ ┣ 📜localStorage.js
  ┃ ┃ ┣ 📜swalModal.js
- ┃ ┃ ┗ 📜useCardManager.js
+ ┃ ┃ ┗ 📜usePokeCardManager.js
  ┃ ┣ 📜App.jsx
  ┃ ┗ 📜main.jsx
- ┣ 📜.gitignore
- ┣ 📜eslint.config.js
- ┣ 📜index.html
- ┣ 📜LICENSE
- ┣ 📜package-lock.json
- ┣ 📜package.json
- ┣ 📜README.md
- ┗ 📜vite.config.js
 ```
