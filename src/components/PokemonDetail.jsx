@@ -1,44 +1,20 @@
 import { useNavigate, useSearchParams } from "react-router-dom";
 import MOCK_DATA from "../data/MOCK_DATA";
-import { useDispatch, useSelector } from "react-redux";
-import { addCard, removeCard } from "../redux/slices/pokemonSlice";
-import {
-  canAddCardSwal,
-  overSixCardSwal,
-  removeCardSwal,
-  sameCardSwal,
-} from "../utils/swalModal";
+import { useSelector } from "react-redux";
 import { Body, DetailButton, DetailImg } from "../styles/style";
+import { useCardActions } from "../utils/usePokeCardManager";
 
 const PokemonDetail = () => {
   const [searchParams] = useSearchParams();
   const pid = searchParams.get("pid");
   const card = MOCK_DATA.find((item) => item.id === Number(pid));
   const { img_url, korean_name, types, description } = card;
-  const navigate = useNavigate();
   const pokemonCards = useSelector((state) => state.pokemon);
-  const dispatch = useDispatch();
+  const { addPokeCard, removePokeCard } = useCardActions();
+  const navigate = useNavigate();
 
   const goBack = () => {
     navigate(-1);
-  };
-
-  const addPokeCard = (card) => {
-    // 6개 이상 추가할 때
-    if (pokemonCards.length > 5) {
-      return overSixCardSwal();
-      // 같은 포켓몬을 잡을 때
-    } else if (pokemonCards.some((item) => item.id === card.id)) {
-      return sameCardSwal();
-    } else {
-      canAddCardSwal();
-      return dispatch(addCard(card));
-    }
-  };
-
-  const removePokeCard = (card) => {
-    removeCardSwal();
-    dispatch(removeCard(card));
   };
 
   return (
