@@ -8,7 +8,7 @@ import { setLocalStorage } from "./utils/localStorage";
 const GlobalStyle = createGlobalStyle`
   @font-face {
     font-family: "Silver";
-    src: url("/src/assets/fonts/Silver.ttf") format('truetype');
+    src: url("/fonts/Silver.ttf") format('truetype');
   }
   body{
     font-family: 'Silver', sans-serif;
