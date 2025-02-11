@@ -29,9 +29,9 @@
 
 # 🚨 트러블 슈팅
 
-- [버튼에 이벤트가 있는데 왜 다른 이벤트가 먹음?](https://velog.io/@wltn7star/TIL19.-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-some-%EC%82%AC%EC%9A%A9)
-- [빈 포켓볼 만들고 싶은데 어떻게 만들지?](https://velog.io/@wltn7star/TIL19.-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-some-%EC%82%AC%EC%9A%A9)
-- [vercel로 배포했는데 이미지는 어디감?](https://velog.io/@wltn7star/TIL19.-%EC%9E%90%EB%B0%94%EC%8A%A4%ED%81%AC%EB%A6%BD%ED%8A%B8-some-%EC%82%AC%EC%9A%A9)
+- [버튼에 이벤트가 있는데 왜 다른 이벤트가 먹음?](https://velog.io/@wltn7star/TIL20.-%EB%B2%84%ED%8A%BC%EC%97%90-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EA%B0%80-%EC%9E%88%EB%8A%94%EB%8D%B0-%EC%99%9C-%EB%8B%A4%EB%A5%B8-%EC%9D%B4%EB%B2%A4%ED%8A%B8%EA%B0%80-%EB%A8%B9%EC%9D%8C)
+- [빈 포켓볼 만들고 싶은데 어떻게 만들지?](https://velog.io/@wltn7star/TIL21.-%EB%B9%88-%ED%8F%AC%EC%BC%93%EB%B3%BC-%EB%A7%8C%EB%93%A4%EA%B3%A0-%EC%8B%B6%EC%9D%80%EB%8D%B0-%EC%96%B4%EB%96%BB%EA%B2%8C-%EB%A7%8C%EB%93%A4%EC%A7%80)
+- [vercel로 배포했는데 이미지는 어디감?](https://velog.io/@wltn7star/TIL22.-vercel%EB%A1%9C-%EB%B0%B0%ED%8F%AC%ED%96%88%EB%8A%94%EB%8D%B0-%EC%9D%B4%EB%AF%B8%EC%A7%80%EB%8A%94-%EC%96%B4%EB%94%94%EA%B0%90)
 
 # 📸 스크린 샷
 
@@ -62,7 +62,6 @@
 📦Pokemon-Dex
  ┣ 📂public
  ┃ ┣ 📂fonts
- ┃ ┃ ┣ 📜pixelroborobo.otf
  ┃ ┃ ┗ 📜Silver.ttf
  ┃ ┣ 📜homepikachu.png
  ┃ ┣ 📜pikachu.png
@@ -70,7 +69,6 @@
  ┃ ┣ 📜poketball.png
  ┃ ┗ 📜poketball_glossy.png
  ┣ 📂src
- ┃ ┣ 📂assets
  ┃ ┣ 📂components
  ┃ ┃ ┣ 📜Dashboard.jsx
  ┃ ┃ ┣ 📜PokemonCard.jsx
@@ -90,7 +88,8 @@
  ┃ ┣ 📂shared
  ┃ ┃ ┗ 📜Router.jsx
  ┃ ┣ 📂styles
- ┃ ┃ ┗ 📜reset.css
+ ┃ ┃ ┣ 📜reset.css
+ ┃ ┃ ┗ 📜style.js
  ┃ ┣ 📂utils
  ┃ ┃ ┣ 📜localStorage.js
  ┃ ┃ ┣ 📜swalModal.js
