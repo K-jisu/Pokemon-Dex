@@ -6,13 +6,9 @@ import { useEffect } from "react";
 import { setLocalStorage } from "./utils/localStorage";
 
 const GlobalStyle = createGlobalStyle`
-@font-face {
-    font-family: "pixelroborobo";
-    src: url("/src/fonts/pixelroborobo.otf") format('truetype');
-  }
   @font-face {
     font-family: "Silver";
-    src: url("/fonts/Silver.ttf") format('truetype');
+    src: url("/src/assets/fonts/Silver.ttf") format('truetype');
   }
   body{
     font-family: 'Silver', sans-serif;

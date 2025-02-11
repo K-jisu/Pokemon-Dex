@@ -17,7 +17,7 @@ export const GoToDexButton = styled(Link)`
   background-color: #f55151;
   border: none;
   border-radius: 8px;
-  font-family: "Silver", sans-serif;
+  font-family: "Silver.ttf", sans-serif;
   font-size: 30px;
   padding-top: 12px;
   transition: 0.3s ease-out;

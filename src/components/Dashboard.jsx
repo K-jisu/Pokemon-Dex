@@ -24,7 +24,7 @@ const Dashboard = () => {
               <PokemonCard key={data[idx].id} card={data[idx]} text="삭제" />
             );
           } else {
-            return <PocketBall src="/poketball_glossy.png" alt="poketball" />;
+            return <PocketBall src="/src/assets/poketball_glossy.png" alt="poketball" />;
           }
         })}
       </DashboardCardContainer>
